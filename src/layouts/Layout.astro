@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-name">Jennifer Chong</span>
+      <span class="nav-logo-title">Corporate Governance Consultant</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/"          class="nav-link">Home</a>
+      <a href="/about"     class="nav-link">About</a>
+      <a href="/expertise" class="nav-link">Expertise</a>
+      <a href="/services"  class="nav-link">Services</a>
+      <a href="/research"  class="nav-link">Research</a>
+      <a href="/training"  class="nav-link">Training</a>
+      <a href="/resources" class="nav-link">Resources</a>
+      <a href="/contact"   class="nav-cta">Book Assessment</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="nav-mobile" aria-label="Mobile navigation">
+  <a href="/"          class="nav-link">Home</a>
+  <a href="/about"     class="nav-link">About</a>
+  <a href="/expertise" class="nav-link">Expertise</a>
+  <a href="/services"  class="nav-link">Services</a>
+  <a href="/research"  class="nav-link">Research</a>
+  <a href="/training"  class="nav-link">Training</a>
+  <a href="/resources" class="nav-link">Resources</a>
+  <a href="/contact"   class="nav-cta">Book Assessment</a>
+</nav>
+
+<slot />
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Jennifer Chong</h3>
+        <span class="tagline">Corporate Governance Consultant · Singapore</span>
+        <p>PhD-qualified board governance expert helping Singapore's boards achieve SGX compliance, improve effectiveness, and build diverse, high-performing leadership.</p>
+        <div class="footer-contact-item">📧 jennifercly@gmail.com</div>
+        <div class="footer-contact-item">📞 +65 8577 6630</div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="/services" class="footer-link">Board Governance Audit</a>
+          <a href="/services" class="footer-link">Board Effectiveness Assessment</a>
+          <a href="/services" class="footer-link">SGX Compliance Review</a>
+          <a href="/services" class="footer-link">Female Director Recruitment</a>
+          <a href="/services" class="footer-link">Governance Training</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <div class="footer-links">
+          <a href="/about"     class="footer-link">About Jennifer</a>
+          <a href="/expertise" class="footer-link">Areas of Expertise</a>
+          <a href="/research"  class="footer-link">Research &amp; Publications</a>
+          <a href="/training"  class="footer-link">Training Workshops</a>
+          <a href="/resources" class="footer-link">Free Resources</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <div class="footer-links">
+          <a href="/contact"   class="footer-link">Book Free Assessment</a>
+          <a href="/contact"   class="footer-link">Contact Jennifer</a>
+          <a href="/resources" class="footer-link">Governance Toolkit</a>
+          <a href="/resources" class="footer-link">SGX Compliance Guide</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Jennifer Chong Consulting. All rights reserved.</p>
+      <p>Corporate Governance Consulting · Singapore</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js" is:inline></script>
+</body>
+</html>
