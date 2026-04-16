@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jennifer Chong — Corporate Governance Consultant, Singapore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1B2E5E;
+      --navy-deep:   #111D3E;
+      --gold:        #D4A843;
+      --gold-dark:   #B8860B;
+      --gold-pale:   #F0D68A;
+      --parchment:   #F5EDD6;
+      --parchment-dk:#EDE0C4;
+      --cream:       #FAF7F0;
+      --on-navy:     #E8DFC8;
+      --body-ink:    #2C2416;
+      --ff-display:  'Cormorant Garamond', Georgia, serif;
+      --ff-body:     'Libre Baskerville', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      color: var(--body-ink);
+      background: var(--navy-deep);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ─────────────────────────────── */
+    .cursor {
+      position: fixed;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width .2s, height .2s, opacity .2s;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(212,168,67,.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: width .15s ease-out, height .15s ease-out;
+    }
+
+    /* ── NAV ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.6rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(17,29,62,.92), transparent);
+      pointer-events: none;
+    }
+    .nav-logo {
+      position: relative;
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-links {
+      position: relative;
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--ff-display);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--on-navy);
+      text-decoration: none;
+      opacity: .65;
+      transition: opacity .2s, color .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* ── HERO ──────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--navy-deep);
+      display: flex;
+      align-items: flex-end;
+      padding: 0 4rem 6.5rem;
+      overflow: hidden;
+    }
+
+    /* SVG background pattern */
+    .hero-bg {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .hero-bg svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: .055;
+    }
+
+    /* Vertical gold rule */
+    .hero-vert-rule {
+      position: absolute;
+      top: 0; right: 18%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        var(--gold) 25%,
+        var(--gold) 75%,
+        transparent 100%);
+      opacity: .28;
+    }
+
+    /* Ghost year */
+    .hero-ghost-year {
+      position: absolute;
+      top: 50%; right: 4rem;
+      transform: translateY(-50%);
+      font-family: var(--ff-display);
+      font-size: clamp(8rem,14vw,17rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(212,168,67,.09);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -.04em;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: fadeUp .8s ease forwards .3s;
+    }
+    .hero-eyebrow-bar { width: 38px; height: 1px; background: var(--gold); }
+    .hero-eyebrow-txt {
+      font-family: var(--ff-display);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    h1.hero-name {
+      font-family: var(--ff-display);
+      font-size: clamp(3.8rem,9vw,9.5rem);
+      font-weight: 300;
+      line-height: .93;
+      color: #fff;
+      letter-spacing: -.025em;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards .5s;
+    }
+    h1.hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline-wrap {
+      opacity: 0;
+      animation: fadeUp 1s ease forwards .85s;
+    }
+    .hero-rule {
+      display: block;
+      width: 0; height: 1px;
+      background: linear-gradient(to right, var(--gold), rgba(212,168,67,.2));
+      margin: 1.75rem 0 1.5rem;
+      animation: drawRule 1.2s ease forwards 1.25s;
+    }
+    @keyframes drawRule { to { width: min(520px,80vw); } }
+
+    .hero-tagline {
+      font-family: var(--ff-display);
+      font-size: clamp(1.1rem,2.2vw,1.55rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--on-navy);
+      opacity: .82;
+      line-height: 1.55;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      margin-top: 2.75rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.5s;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-family: var(--ff-display);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      transition: color .3s;
+    }
+    .btn-gold::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--gold-pale);
+      transform: translateX(-101%);
+      transition: transform .35s ease;
+    }
+    .btn-gold:hover::after { transform: translateX(0); }
+    .btn-gold > * { position: relative; z-index: 1; }
+    .btn-gold .arr { transition: transform .3s; }
+    .btn-gold:hover .arr { transform: translateX(5px); }
+
+    .btn-ghost-gold {
+      display: inline-flex;
+      align-items: center;
+      padding: .9rem 0;
+      border-bottom: 1px solid rgba(212,168,67,.4);
+      font-family: var(--ff-display);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--on-navy);
+      text-decoration: none;
+      cursor: none;
+      transition: color .2s, border-color .2s;
+    }
+    .btn-ghost-gold:hover { color: var(--gold); border-color: var(--gold); }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem; right: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 2.2s;
+    }
+    .scroll-cue-label {
+      font-family: var(--ff-display);
+      font-size: .6rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: rgba(212,168,67,.45);
+      writing-mode: vertical-rl;
+    }
+    .scroll-cue-line {
+      width: 1px; height: 52px;
+      background: linear-gradient(to bottom, rgba(212,168,67,.45), transparent);
+      animation: pulse 2.2s ease-in-out infinite 2.5s;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:.45; transform:scaleY(1); }
+      50%      { opacity:1;   transform:scaleY(1.15); }
+    }
+
+    /* ── CREDENTIAL BAND ───────────────────────────── */
+    .cred-band {
+      background: var(--gold);
+      padding: 1rem 4rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+    .cred-item {
+      font-family: var(--ff-display);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--navy-deep);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .cred-sep { width: 3px; height: 3px; background: var(--navy-deep); border-radius: 50%; opacity: .35; }
+
+    /* ── ABOUT ─────────────────────────────────────── */
+    .about {
+      background: var(--parchment);
+      padding: 8rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5.5rem;
+      align-items: start;
+      position: relative;
+    }
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--gold-dark));
+    }
+
+    .about-sticky { position: sticky; top: 7rem; }
+
+    .section-badge {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: 2.5rem;
+    }
+    .badge-line { width: 28px; height: 1px; background: var(--gold-dark); }
+    .badge-text {
+      font-family: var(--ff-display);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    h2.section-hed {
+      font-family: var(--ff-display);
+      font-size: clamp(2.4rem,4vw,4.6rem);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--navy);
+      letter-spacing: -.02em;
+    }
+    h2.section-hed em { font-style: italic; color: var(--gold-dark); }
+
+    .about-stats { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .stat { border-top: 1px solid var(--parchment-dk); padding-top: 1.2rem; }
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .stat-num sup { font-size: 1.4rem; color: var(--gold-dark); vertical-align: super; }
+    .stat-lbl {
+      margin-top: .2rem;
+      font-family: var(--ff-display);
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: .48;
+    }
+
+    blockquote.pull {
+      font-family: var(--ff-display);
+      font-size: clamp(1.2rem,2vw,1.7rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.52;
+      color: var(--navy);
+      border-left: 2px solid var(--gold-dark);
+      padding-left: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-body { font-size: .96rem; line-height: 1.88; color: var(--body-ink); opacity: .82; }
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .tag-row { margin-top: 2.75rem; display: flex; flex-wrap: wrap; gap: .7rem; }
+    .tag {
+      padding: .48rem 1.2rem;
+      border: 1px solid var(--gold-dark);
+      font-family: var(--ff-display);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      cursor: none;
+      transition: background .2s, color .2s;
+    }
+    .tag:hover { background: var(--navy); color: var(--gold); }
+
+    /* ── SERVICES ──────────────────────────────────── */
+    .services {
+      background: var(--navy);
+      padding: 8rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .services-texture {
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        45deg, transparent, transparent 60px,
+        rgba(212,168,67,.018) 60px, rgba(212,168,67,.018) 61px);
+    }
+    .services-hd {
+      text-align: center;
+      margin-bottom: 5rem;
+      position: relative;
+    }
+    h2.svc-hed {
+      font-family: var(--ff-display);
+      font-size: clamp(2.6rem,5.5vw,5.8rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: .98;
+      letter-spacing: -.03em;
+    }
+    h2.svc-hed em { font-style: italic; color: var(--gold); }
+    .svc-sub {
+      margin-top: 1.25rem;
+      font-family: var(--ff-display);
+      font-size: .98rem;
+      font-style: italic;
+      color: var(--on-navy);
+      opacity: .55;
+    }
+    .section-badge-center {
+      display: flex; align-items: center; justify-content: center; gap: .75rem;
+      margin-bottom: 2.25rem;
+    }
+    .section-badge-center .badge-line { background: rgba(212,168,67,.45); }
+    .section-badge-center .badge-text { color: rgba(212,168,67,.65); }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2px;
+      position: relative;
+    }
+    .svc-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(212,168,67,.1);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      transition: background .4s, border-color .4s;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .svc-card:hover { background: rgba(212,168,67,.05); border-color: rgba(212,168,67,.28); }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: var(--ff-display);
+      font-size: 4.2rem;
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(212,168,67,.18);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin-bottom: 1.5rem;
+      transition: -webkit-text-stroke-color .4s;
+    }
+    .svc-card:hover .svc-num { -webkit-text-stroke-color: rgba(212,168,67,.45); }
+
+    .svc-title {
+      font-family: var(--ff-display);
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .svc-desc {
+      font-size: .875rem;
+      line-height: 1.75;
+      color: var(--on-navy);
+      opacity: .62;
+    }
+    .svc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: 2rem;
+      font-family: var(--ff-display);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .3s, transform .3s;
+    }
+    .svc-card:hover .svc-cta { opacity: 1; transform: translateX(0); }
+
+    /* ── CTA / CONTACT ─────────────────────────────── */
+    .contact-section {
+      background: var(--parchment);
+      padding: 8rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-ghost {
+      position: absolute;
+      bottom: -2.5rem; right: -1rem;
+      font-family: var(--ff-display);
+      font-size: clamp(5rem,13vw,15rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(27,46,94,.055);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: -.05em;
+    }
+
+    h2.cta-hed {
+      font-family: var(--ff-display);
+      font-size: clamp(2.6rem,4.5vw,5.2rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.02;
+      letter-spacing: -.025em;
+    }
+    h2.cta-hed em { font-style: italic; color: var(--gold-dark); }
+
+    .cta-body {
+      margin-top: 1.5rem;
+      font-size: .93rem;
+      line-height: 1.82;
+      color: var(--body-ink);
+      opacity: .72;
+      max-width: 380px;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--navy);
+      padding: 3rem;
+      position: relative;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,168,67,.35) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .cc-label {
+      font-family: var(--ff-display);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+    }
+
+    .cc-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .cc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .ff {
+      position: relative;
+    }
+    .ff input,
+    .ff select {
+      width: 100%;
+      padding: 1.1rem 1rem .5rem;
+      background: rgba(255,255,255,.05);
+      border: none;
+      border-bottom: 1px solid rgba(212,168,67,.28);
+      color: #fff;
+      font-family: var(--ff-body);
+      font-size: .84rem;
+      outline: none;
+      transition: border-color .2s;
+      cursor: none;
+      appearance: none;
+    }
+    .ff input:focus,
+    .ff select:focus { border-color: var(--gold); }
+    .ff input::placeholder { color: transparent; }
+    .ff label {
+      position: absolute;
+      top: .8rem; left: 1rem;
+      font-family: var(--ff-display);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: rgba(212,168,67,.48);
+      pointer-events: none;
+      transition: all .2s;
+    }
+    .ff input:focus + label,
+    .ff input:not(:placeholder-shown) + label {
+      top: .18rem;
+      font-size: .58rem;
+      letter-spacing: .22em;
+      color: var(--gold);
+    }
+    .ff select + label { display: none; }
+
+    .ff select option { background: var(--navy-deep); }
+
+    .cc-submit {
+      margin-top: .5rem;
+      padding: 1rem;
+      background: var(--gold);
+      border: none;
+      color: var(--navy-deep);
+      font-family: var(--ff-display);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: background .2s;
+    }
+    .cc-submit:hover { background: var(--gold-pale); }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    footer {
+      background: var(--navy-deep);
+      padding: 4.5rem 4rem 2rem;
+      border-top: 1px solid rgba(212,168,67,.14);
+    }
+    .ft-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(212,168,67,.09);
+    }
+    .ft-logo {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: .25rem;
+    }
+    .ft-logo span { font-style: italic; color: var(--gold); }
+    .ft-sub {
+      font-family: var(--ff-display);
+      font-size: .7rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(212,168,67,.45);
+      margin-bottom: 1.5rem;
+    }
+    .ft-bio { font-size: .84rem; line-height: 1.7; color: var(--on-navy); opacity: .45; max-width: 295px; }
+
+    .ft-col-hd {
+      font-family: var(--ff-display);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .ft-links a {
+      font-family: var(--ff-display);
+      font-size: .9rem;
+      color: var(--on-navy);
+      text-decoration: none;
+      opacity: .55;
+      transition: opacity .2s, color .2s;
+    }
+    .ft-links a:hover { opacity: 1; color: var(--gold); }
+
+    .ft-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ft-copy { font-family: var(--ff-display); font-size: .72rem; letter-spacing: .1em; color: var(--on-navy); opacity: .28; }
+    .ft-sg {
+      display: flex; align-items: center; gap: .5rem;
+      font-family: var(--ff-display);
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); opacity: .45;
+    }
+
+    /* ── ANIMATIONS ────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity:0; } to { opacity:1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .d1 { transition-delay:.1s; }
+    .d2 { transition-delay:.22s; }
+    .d3 { transition-delay:.38s; }
+
+    /* ── RESPONSIVE ────────────────────────────────── */
+    @media (max-width:1024px) {
+      .svc-grid { grid-template-columns:1fr 1fr; }
+      .contact-section { grid-template-columns:1fr; }
+      .about { grid-template-columns:1fr; gap:3rem; }
+      .about-sticky { position:static; }
+      .about-stats { flex-direction:row; flex-wrap:wrap; }
+      .ft-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:768px) {
+      nav { padding:1.25rem 1.5rem; }
+      .nav-links { display:none; }
+      .hero { padding:0 1.5rem 5rem; }
+      .hero-ghost-year { display:none; }
+      .cred-band { padding:.9rem 1.5rem; gap:1.25rem; }
+      .about, .services, .contact-section { padding:5rem 1.5rem; }
+      .svc-grid { grid-template-columns:1fr; }
+      footer { padding:3rem 1.5rem 1.5rem; }
+      .ft-grid { grid-template-columns:1fr; gap:2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-logo">Jennifer Chong</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="diag" width="42" height="42" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
+            <line x1="0" y1="0" x2="0" y2="42" stroke="#D4A843" stroke-width=".35"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#diag)"/>
+        <g transform="translate(1440,0)" stroke="#D4A843" fill="none">
+          <circle r="210" stroke-width=".5" opacity=".35"/>
+          <circle r="370" stroke-width=".4" opacity=".22"/>
+          <circle r="540" stroke-width=".3" opacity=".14"/>
+          <circle r="720" stroke-width=".25" opacity=".08"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-vert-rule"></div>
+    <div class="hero-ghost-year">2025</div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-bar"></span>
+        <span class="hero-eyebrow-txt">Corporate Governance Consultant &nbsp;·&nbsp; Singapore</span>
+      </div>
+
+      <h1 class="hero-name">
+        Jennifer<br><em>Chong</em>
+      </h1>
+
+      <div class="hero-tagline-wrap">
+        <span class="hero-rule"></span>
+        <p class="hero-tagline">
+          Strengthening boards. Advancing diversity.<br>
+          Elevating governance standards across SGX-listed companies.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-gold">
+          <span>Explore Services</span>
+          <span class="arr">→</span>
+        </a>
+        <a href="contact.html" class="btn-ghost-gold">Engage Jennifer</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span class="scroll-cue-label">Scroll</span>
+      <span class="scroll-cue-line"></span>
+    </div>
+  </section>
+
+  <!-- ── CREDENTIAL BAND ── -->
+  <div class="cred-band">
+    <span class="cred-item">PhD · Curtin University</span>
+    <span class="cred-sep"></span>
+    <span class="cred-item">SGX Listed Companies</span>
+    <span class="cred-sep"></span>
+    <span class="cred-item">Board Effectiveness</span>
+    <span class="cred-sep"></span>
+    <span class="cred-item">Gender Diversity Research</span>
+    <span class="cred-sep"></span>
+    <span class="cred-item">Independent Consultant</span>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="about">
+    <div class="about-sticky">
+      <div class="section-badge reveal">
+        <span class="badge-line"></span>
+        <span class="badge-text">About</span>
+      </div>
+      <h2 class="section-hed reveal d1">
+        Governance<br><em>that drives</em><br>performance
+      </h2>
+      <div class="about-stats">
+        <div class="stat reveal d1">
+          <div class="stat-num" data-target="15" data-suffix="+">0<sup>+</sup></div>
+          <div class="stat-lbl">Years Experience</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="stat-num" data-target="50" data-suffix="+">0<sup>+</sup></div>
+          <div class="stat-lbl">Boards Advised</div>
+        </div>
+        <div class="stat reveal d3">
+          <div class="stat-num" data-target="2" data-suffix="">0</div>
+          <div class="stat-lbl">Peer-reviewed Publications</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <blockquote class="pull reveal">
+        "Good governance is not a compliance checkbox — it is the foundation upon which sustainable, high-performing organisations are built."
+      </blockquote>
+      <div class="about-body reveal d1">
+        <p>Jennifer Chong is a Singapore-based corporate governance consultant and PhD-qualified researcher specialising in board effectiveness, gender diversity, and governance frameworks for SGX-listed companies.</p>
+        <p>With deep expertise spanning board composition, strategic decision-making, and big data analytics investment, Jennifer works with boards, remuneration committees, and company secretaries to design governance structures that are not just compliant — but genuinely effective.</p>
+        <p>Her research, published in the <em>Journal of General Management</em> and MATEC Web of Conferences, provides the empirical backbone to her advisory practice — ensuring every recommendation is grounded in evidence, not intuition.</p>
+      </div>
+      <div class="tag-row reveal d2">
+        <span class="tag">Board Governance</span>
+        <span class="tag">SGX Compliance</span>
+        <span class="tag">Gender Diversity</span>
+        <span class="tag">Board Effectiveness</span>
+        <span class="tag">PhD Research</span>
+        <span class="tag">Workshops</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="services-texture"></div>
+    <div class="services-hd">
+      <div class="section-badge-center reveal">
+        <span class="badge-line"></span>
+        <span class="badge-text">What I Offer</span>
+        <span class="badge-line"></span>
+      </div>
+      <h2 class="svc-hed reveal d1">
+        Governance <em>advisory</em><br>built for boards
+      </h2>
+      <p class="svc-sub reveal d2">Tailored counsel for directors, executives, and company secretaries</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <h3 class="svc-title">Board Governance Advisory</h3>
+        <p class="svc-desc">Comprehensive governance reviews, board charter development, and effectiveness assessments aligned with Singapore's Code of Corporate Governance and SGX Listing Rules.</p>
+        <a href="services.html" class="svc-cta">Learn more →</a>
+      </div>
+      <div class="svc-card reveal d1">
+        <div class="svc-num">02</div>
+        <h3 class="svc-title">Diversity &amp; Inclusion Strategy</h3>
+        <p class="svc-desc">Evidence-based frameworks for building gender-diverse, educationally diverse boards. Practical roadmaps from policy to measurable outcomes — backed by peer-reviewed research.</p>
+        <a href="services.html" class="svc-cta">Learn more →</a>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-num">03</div>
+        <h3 class="svc-title">SGX Compliance Consulting</h3>
+        <p class="svc-desc">Navigate SGX Listing Rules, disclosure requirements, and best-practice governance standards with confidence. From IPO readiness to ongoing listed-company compliance.</p>
+        <a href="services.html" class="svc-cta">Learn more →</a>
+      </div>
+      <div class="svc-card reveal d1">
+        <div class="svc-num">04</div>
+        <h3 class="svc-title">Board Training &amp; Education</h3>
+        <p class="svc-desc">Bespoke workshops for directors and company secretaries covering governance fundamentals, strategic oversight, and emerging issues in technology governance.</p>
+        <a href="training.html" class="svc-cta">Learn more →</a>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-num">05</div>
+        <h3 class="svc-title">Board Evaluation &amp; Assessment</h3>
+        <p class="svc-desc">Independent, structured evaluations of board and committee performance. Identifies capability gaps, recommends composition changes, and benchmarks against regional peers.</p>
+        <a href="services.html" class="svc-cta">Learn more →</a>
+      </div>
+      <div class="svc-card reveal d3">
+        <div class="svc-num">06</div>
+        <h3 class="svc-title">Research &amp; Keynote Speaking</h3>
+        <p class="svc-desc">Commissioned research, white papers, and keynote addresses on corporate governance, board diversity, and the intersection of technology with strategic decision-making.</p>
+        <a href="research.html" class="svc-cta">Learn more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact-section" id="contact">
+    <div class="contact-ghost">Govern</div>
+    <div>
+      <div class="section-badge reveal">
+        <span class="badge-line"></span>
+        <span class="badge-text">Get in Touch</span>
+      </div>
+      <h2 class="cta-hed reveal d1">
+        Let's build a<br><em>better board</em><br>together.
+      </h2>
+      <p class="cta-body reveal d2">
+        Whether you're preparing for an SGX listing, navigating a governance review, or building a more diverse board — Jennifer brings the research, experience, and clarity your organisation needs.
+      </p>
+    </div>
+
+    <div class="reveal d2">
+      <div class="contact-card">
+        <p class="cc-label">Send an Enquiry</p>
+        <form class="cc-form" onsubmit="handleSubmit(event)">
+          <div class="cc-row">
+            <div class="ff">
+              <input type="text" id="nm" placeholder="Name" required>
+              <label for="nm">Full Name</label>
+            </div>
+            <div class="ff">
+              <input type="email" id="em" placeholder="Email" required>
+              <label for="em">Email Address</label>
+            </div>
+          </div>
+          <div class="ff">
+            <input type="text" id="co" placeholder="Company" required>
+            <label for="co">Company / Organisation</label>
+          </div>
+          <div class="ff">
+            <label style="position:static;font-size:.62rem;letter-spacing:.3em;color:rgba(212,168,67,.45);display:block;margin-bottom:.35rem;text-transform:uppercase;">Area of Interest</label>
+            <select id="svc" style="width:100%;padding:.85rem 1rem;background:rgba(255,255,255,.05);border:none;border-bottom:1px solid rgba(212,168,67,.28);color:rgba(232,223,200,.65);font-family:'Cormorant Garamond',Georgia,serif;font-size:.82rem;letter-spacing:.1em;outline:none;cursor:none;appearance:none;">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Board Governance Advisory</option>
+              <option>Diversity &amp; Inclusion Strategy</option>
+              <option>SGX Compliance Consulting</option>
+              <option>Board Training &amp; Education</option>
+              <option>Board Evaluation &amp; Assessment</option>
+              <option>Research / Keynote Speaking</option>
+            </select>
+          </div>
+          <button type="submit" class="cc-submit">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Jennifer <span>Chong</span></div>
+        <div class="ft-sub">Corporate Governance Consultant</div>
+        <p class="ft-bio">PhD-qualified governance advisor to SGX-listed companies and boards across Singapore and the region. Rigorous research. Practical counsel. Lasting impact.</p>
+      </div>
+      <div>
+        <div class="ft-col-hd">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="expertise.html">Expertise</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="training.html">Training</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-hd">Contact</div>
+        <ul class="ft-links">
+          <li><a href="mailto:jennifer@jenniferchong.com">jennifer@jenniferchong.com</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">+65 XXXX XXXX</a></li>
+          <li><a href="#">Singapore</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2025 Jennifer Chong. All rights reserved.</p>
+      <div class="ft-sg">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="currentColor" stroke-width=".5"/><path d="M3 6 Q6 2 9 6 Q6 10 3 6Z" stroke="currentColor" stroke-width=".5" fill="none"/></svg>
+        Based in Singapore
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Custom cursor
+    const $c = document.getElementById('cursor');
+    const $r = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      $c.style.left = mx + 'px';
+      $c.style.top  = my + 'px';
+    });
+    (function tick() {
+      rx += (mx - rx) * .12;
+      ry += (my - ry) * .12;
+      $r.style.left = rx + 'px';
+      $r.style.top  = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+
+    document.querySelectorAll('a, button, .svc-card, .tag').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        $c.style.width = $c.style.height = '14px';
+        $r.style.width = $r.style.height = '54px';
+      });
+      el.addEventListener('mouseleave', () => {
+        $c.style.width = $c.style.height = '8px';
+        $r.style.width = $r.style.height = '36px';
+      });
+    });
+
+    // ── Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // ── Counter animation
+    function counter(el, target, suffix) {
+      const start = performance.now();
+      const dur = 1800;
+      const sup = el.querySelector('sup');
+      (function step(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(ease * target) + suffix;
+        if (sup) el.appendChild(sup);
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    }
+
+    const statsIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('.stat-num').forEach(el => {
+          counter(el, +el.dataset.target, el.dataset.suffix);
+        });
+        statsIO.unobserve(e.target);
+      });
+    }, { threshold: .3 });
+    const statsEl = document.querySelector('.about-stats');
+    if (statsEl) statsIO.observe(statsEl);
+
+    // ── Form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.cc-submit');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#2d6a4f';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3200);
+    }
+  </script>
+</body>
+</html>
